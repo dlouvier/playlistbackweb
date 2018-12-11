@@ -9,8 +9,8 @@ import (
 	"github.com/dlouvier/playlistbackweb/spotify"
 )
 
-// Operations about Users
-type PlayListController struct {
+// SpotifyController to work around with */spotify/* requests
+type SpotifyController struct {
 	beego.Controller
 }
 
@@ -20,7 +20,7 @@ type PlayListController struct {
 // @Success 200 {object} models.User
 // @Failure 403 :uid is empty
 // @router /:uid [get]
-func (p *PlayListController) Get() {
+func (p *SpotifyController) Get() {
 
 	uid := p.GetString(":uid")
 	fmt.Println("Hola")

@@ -15,13 +15,42 @@
     },
     "basePath": "/v1",
     "paths": {
-        "/playlist/{uid}": {
+        "/playlist/deezer/{uid}": {
             "get": {
                 "tags": [
-                    "playlist"
+                    "playlist/deezer"
                 ],
                 "description": "get user by uid",
-                "operationId": "PlayListController.Get",
+                "operationId": "DeezerController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uid",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    },
+                    "403": {
+                        "description": ":uid is empty"
+                    }
+                }
+            }
+        },
+        "/playlist/spotify/{uid}": {
+            "get": {
+                "tags": [
+                    "playlist/spotify"
+                ],
+                "description": "get user by uid",
+                "operationId": "SpotifyController.Get",
                 "parameters": [
                     {
                         "in": "path",
@@ -53,7 +82,11 @@
     },
     "tags": [
         {
-            "name": "playlist",
+            "name": "playlist/spotify",
+            "description": "SpotifyController to work around with */spotify/* requests\n"
+        },
+        {
+            "name": "playlist/deezer",
             "description": "Operations about Users\n"
         }
     ]

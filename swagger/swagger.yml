@@ -11,12 +11,31 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 basePath: /v1
 paths:
-  /playlist/{uid}:
+  /playlist/deezer/{uid}:
     get:
       tags:
-      - playlist
+      - playlist/deezer
       description: get user by uid
-      operationId: PlayListController.Get
+      operationId: DeezerController.Get
+      parameters:
+      - in: path
+        name: uid
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.User'
+        "403":
+          description: :uid is empty
+  /playlist/spotify/{uid}:
+    get:
+      tags:
+      - playlist/spotify
+      description: get user by uid
+      operationId: SpotifyController.Get
       parameters:
       - in: path
         name: uid
@@ -35,6 +54,9 @@ definitions:
     title: User
     type: object
 tags:
-- name: playlist
+- name: playlist/spotify
+  description: |
+    SpotifyController to work around with */spotify/* requests
+- name: playlist/deezer
   description: |
     Operations about Users

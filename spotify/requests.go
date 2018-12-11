@@ -18,12 +18,3 @@ func GetRequests(url string) string {
 
 	return string(resp)
 }
-
-// To Debug: blabla, _ := ioutil.ReadAll(req.Body) // ioutil.ReadAll(resp.Request.Header)
-// blabla := resp.Request.Header
-// blabla := resp.Request.URL
-// fmt.Println(blabla)
-// fmt.Println("Body: " + string(body))
-
-//fmt.Println("Body: " + string(body))
-//fmt.Println("Secret: " + secret)
